@@ -1,0 +1,36 @@
+#!/bin/bash
+green "======================"
+
+# Function to print messages in green
+function green(){
+    echo -e "\x1B[32m $1 \x1B[0m"
+    if [ ! -z "${2}" ]; then
+        echo -e "\x1B[32m $($2) \x1B[0m"
+    fi
+}
+
+# Function to print messages in red
+function red(){
+  echo -e "\x1B[31m $1 \x1B[0m"
+  if [ ! -z "${2}" ]; then
+    echo -e "\x1B[31m $($2) \x1B[0m"
+  fi
+}
+
+# Set the working directory to the parent directory of the script
+WORKING_DIR=$(dirname "$0")/..
+
+# Print starting message
+green "=== Starting app 🚀 ==="
+
+# # Activate the conda environment
+# if ! conda activate btc-backtesting-env; then
+#     red "Failed to activate conda environment"
+#     exit 1
+# fi
+
+# Start the app using uvicorn
+if ! uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload; then
+    red "Failed to start the app"
+    exit 1
+fi

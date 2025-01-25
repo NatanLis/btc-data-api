@@ -1,0 +1,12 @@
+name: btc-backtesting-env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - fastapi
+  - uvicorn
+  - google-cloud-bigquery
+  - pandas
+  - numpy
+  - requests
