@@ -19,10 +19,11 @@ config = load_config("database_config.cfg")
 client = bigquery.Client()
 
 @router.get("/btcusdt")
+@router.get("/ethusdt")
+@router.get("/bnbusdt")
 async def get_data(
   start: str,
   end: str,
-  # timeframe: Optional[str] = None,
 
   tr: Optional[bool] =  Query(default=None),
   obv: Optional[bool] =  Query(default=None),
