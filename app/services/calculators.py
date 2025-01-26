@@ -4,8 +4,6 @@ class CalculateIndicators:
     """
     A utility class for calculating various financial indicators.
     """
-    # def __init__(self):
-    #     self._finalize_dataframe = self._finalize_dataframe
 
     def _finalize_dataframe(self, df):
         """Replace invalid values and return JSON-like data."""
